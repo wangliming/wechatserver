@@ -1,9 +1,9 @@
 var events = require("events");
-var  emitter = new events.EventEmitter();
+var fansemitter = require('./../helpers/uploadfansinfo')
 
 function saybyname(req, res, next, id){
   console.log(req);
-  emitter.emit("saybyname", req.body);
+  fansemitter.emit("saybyname", req.body);
 }
-exports.default = { loadbyname: loadbyname};
+exports.default = { saybyname: saybyname};
 module.exports = exports['default'];

@@ -1,8 +1,7 @@
 var events = require("events");
-var  emitter = new events.EventEmitter();
+var fansemitter = new events.EventEmitter();
 
-emitter.addListener("some_event",function(){
+fansemitter.addListener("saybyname",function(){
     console.log("事件触发，调用此回调函数");
 });
-
-// emitter.emit("some_event");
+module.exports = fansemitter;
