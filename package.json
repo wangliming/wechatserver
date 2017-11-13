@@ -1,6 +1,6 @@
 {
   "name": "wechatserver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "微信聊天server",
   "main": "index.js",
   "scripts": {
