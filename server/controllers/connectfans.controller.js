@@ -1,5 +1,5 @@
 var events = require("events");
-var fansemitter = require('./../helpers/uploadfansinfo')
+var fansemitter = require('./../helpers/fansemitter')
 
 function saybyname(req, res, next, id){
   // console.log(req);

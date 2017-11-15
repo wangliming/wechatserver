@@ -1,6 +1,6 @@
 var express = require('./config/express')
 var config = require('./config/config')
-var uploadfansinfo = require('./server/helpers/uploadfansinfo')
+var fansdbconnect = require('./server/helpers/fansdbconnect')
 var fansemitter = require('./server/helpers/fansemitter')
 
 express.get('/', function (req, res) {
@@ -10,4 +10,4 @@ express.get('/', function (req, res) {
 express.listen(3030, function(){
 	console.log('server started on port 3030');
 })
-module.exports = {fansemitter:fansemitter, uploadfansinfo: uploadfansinfo};
+module.exports = {fansemitter:fansemitter, fansdbconnect: fansdbconnect};
