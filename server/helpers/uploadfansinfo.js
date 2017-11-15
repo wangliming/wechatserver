@@ -1,7 +1,39 @@
-var events = require("events");
-var fansemitter = new events.EventEmitter();
+var request = require('request');
+var testdata = require('./../../test/testdata')
+require('dotenv').config({path: __dirname + '/../../.env'})
+function senddatabyget(url, jsondata){
+	request({
+		    url: process.env.DB_URL+url,
+		    method: "GET",
+		    json: true,
+		    headers: {
+		        "content-type": "application/json",
+		    },
+		    body: jsondata
+		}, function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+	    console.log(body)
+	  }
+	})	
+}
 
-// fansemitter.addListener("saybyname",function(){
-//     console.log("事件触发，调用此回调函数");
-// });
-module.exports = fansemitter;
+function senddatabypost(url, jsondata){
+	request({
+	    url: process.env.DB_URL+url,
+	    method: "POST",
+	    json: true,
+	    headers: {
+	        "content-type": "application/json",
+	    },
+	    body: jsondata
+	}, function(error, resp, body) {
+	    if (!error && resp.statusCode == 200) {
+			console.log(resp)
+	    }
+	});
+}
+function uploadfans(){
+	senddatabypost('/api/fans/uploadfans/', testdata)
+}
+
+module.exports = {uploadfans: uploadfans};
